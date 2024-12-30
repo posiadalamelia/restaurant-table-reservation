@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Admin Panel - Restaurant Table Reservation{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+    <section class="reservations">
+        <h2>All Reservations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Comments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.name }}</td>
+                    <td>{{ reservation.email }}</td>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.time }}</td>
+                    <td>{{ reservation.guests }}</td>
+                    <td>{{ reservation.comments }}</td>
+                    <td>
+                        <a href="{{ url_for('delete', reservation_id=reservation.id) }}" class="btn-delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

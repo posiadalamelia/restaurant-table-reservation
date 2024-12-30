@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Restaurant Table Reservation{% endblock %}
+{% block content %}
+    <section class="form-container">
+        <h2>Reserve a Table</h2>
+        <form method="POST" action="/">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required> 
+
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time">
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" placeholder="Guests" required>
+
+            <label for="comments">Comments (optional):</label>
+            <textarea id="comments" name="comments" placeholder="Any special requests?"></textarea>
+
+            <button type="submit">Reserve Now</button>
+        </form>
+    </section>
+{% endblock %}

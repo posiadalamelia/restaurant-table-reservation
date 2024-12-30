@@ -1,0 +1,149 @@
+body {
+    font-family: DejaVu Sans Mono, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: #2d2d2d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #f9f9f9;
+    color: #666;
+    margin-top: 15px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex: 1;
+}
+
+.form-container, .reservations {
+    width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #4CAF50;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+input, textarea, button, select {
+    margin-bottom: 1em;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%; 
+    max-width: 500px; 
+}
+
+input:focus, textarea:focus, button:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+select{
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.reservations {
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.reservations table {
+    width: auto;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.reservations table th,
+.reservations table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.reservations table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    color: red;
+    text-decoration: none;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}

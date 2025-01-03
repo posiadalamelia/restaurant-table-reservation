@@ -1,11 +1,13 @@
 from app import redis_client
 import uuid
+from datetime import datetime
 
-# Save reservation to Redis
 def save_reservation(name, email, date, time, guests, comments):
-    reservation_id = str(uuid.uuid4())
+    reservation_id = str(uuid.uuid4()) # create unique id of reservation
+    timestamp = datetime.now().strftime('%d-%m-%Y %H:%M') # Get the current date and time in ISO 8601 format
     reservation_data = {
         "id": reservation_id,
+        "timestamp" : timestamp,
         "name": name,
         "email": email,
         "date": date,
@@ -17,7 +19,6 @@ def save_reservation(name, email, date, time, guests, comments):
     redis_client.lpush("reservations", reservation_id)
     return reservation_id
 
-# Pobranie wszystkich rezerwacji
 def get_all_reservations():
     reservation_ids = redis_client.lrange("reservations", 0, -1)
     reservations = []
@@ -27,11 +28,9 @@ def get_all_reservations():
             reservations.append(reservation)
     return reservations
 
-# Pobranie szczegółów rezerwacji
 def get_reservation(reservation_id):
     return redis_client.hgetall(f"reservation:{reservation_id}")
 
-# Usunięcie rezerwacji
 def delete_reservation(reservation_id):
     redis_client.delete(f"reservation:{reservation_id}")
     redis_client.lrem("reservations", 0, reservation_id)

@@ -21,19 +21,40 @@ def index():
 
 
 # Administration panel
-@app.route("/admin")
+@app.route("/admin", methods=["GET", "POST"])
 def admin():
-    reservations = get_all_reservations()
-    return render_template("admin.html", reservations=reservations)
+    # Get data from search formula
+    name = request.args.get("name", "")
+    email = request.args.get("email", "")
+    date = request.args.get("date", "")
+    time = request.args.get("time", "")
+    guests = request.args.get("guests", "")
 
+    all_reservations = get_all_reservations()
 
-# Usuwanie rezerwacji
+    # Data's filtering 
+    search_results = all_reservations
+    if name: 
+        search_results = [r for r in search_results if name.lower() in r['name'].lower()]
+    if email:
+        search_results = [r for r in search_results if email.lower() in r['email'].lower()]
+    if date:
+        search_results = [r for r in search_results if date == r['date']]
+    if time:
+        search_results = [r for r in search_results if time == r['time']]
+    if guests:
+        search_results = [r for r in search_results if str(guests) == str(r['guests'])]
+
+    return render_template("admin.html", search_results=search_results, all_reservations=all_reservations)
+
+# Delete reservation
 @app.route("/delete/<reservation_id>")
 def delete(reservation_id):
     delete_reservation(reservation_id)
     flash("Reservation deleted successfully!", "info")
     return redirect(url_for("admin"))
 
+# Confirmation of reservation
 @app.route("/confirmation")
 def confirmation():
     return render_template("confirmation.html")

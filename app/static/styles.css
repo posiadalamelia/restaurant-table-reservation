@@ -1,5 +1,5 @@
 body {
-    font-family: DejaVu Sans Mono, monospace;
+    font-family: 'DejaVu Sans Mono', monospace;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -7,44 +7,66 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
 }
 
 header {
     background-color: #2d2d2d;
     color: white;
     text-align: center;
-    padding: 10px;
     width: 100%;
 }
 
 footer {
     text-align: center;
-    padding: 1em 0;
     background-color: #f9f9f9;
     color: #666;
-    margin-top: 15px;
+    margin-top: 40px;
 }
 
-main {
+footer nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+/* Admin */
+.admin-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1600px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.form-container, .reservations {
-    width: 600px;
+/* Search form and results side by side layout */
+.search-and-results {
+    display: flex;
+    gap: 20px;
+}
+
+/* Search formula */
+.search-form {
+    min-width: 300px;
     background: #ffffff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px 10px;
+    box-shadow: 0 32px 48px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    height: 380px;
+    overflow: hidden;
 }
 
-.form-container h2 {
+.search-form h2 {
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 1.5em;
@@ -52,78 +74,79 @@ main {
     text-align: center;
 }
 
-form {
+.search-form form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-label {
-    margin-bottom: 0.5em;
-    font-weight: bold;
-}
-
-input, textarea, button, select {
+.search-form input, .search-form button {
+    width: 100%;
+    max-width: 300px;
     margin-bottom: 1em;
     padding: 10px;
+    font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1em;
-    width: 100%; 
-    max-width: 500px; 
 }
 
-input:focus, textarea:focus, button:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-select{
-    width: 100%;
-}
-
-textarea {
-    resize: none;
-    height: 100px;
-}
-
-button {
+.search-form button {
     background-color: #4CAF50;
     color: white;
-    border: none;
     cursor: pointer;
 }
 
-button:hover {
+.search-form button:hover {
     background-color: #45a049;
 }
 
-header nav {
-    margin-top: 10px;
+.search-form form input:focus,
+.search-form form textarea:focus {
+    border-color: #4CAF50; 
+    outline: none;
 }
 
-header nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-header nav a:hover {
-    text-decoration: underline;
-}
-
-.reservations {
+/* Search results table */
+.search-results {
+    flex: 2;
     width: 100%;
-    padding: 20px;
+    padding: 0px 20px;
     background: #ffffff;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin: 20px 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 410px;
+}
+
+
+.search-results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.search-results table th,
+.search-results table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.search-results table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* All reservations */
+.reservations {
+    padding: 0px 20px 20px 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .reservations table {
-    width: auto;
-    margin: 0 auto;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -146,4 +169,159 @@ header nav a:hover {
 
 .btn-delete:hover {
     text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px; 
+}
+
+
+/* Formula in index.html */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px 60px;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #4CAF50; 
+    text-align: center;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.form-container form input,
+.form-container form textarea,
+.form-container form button {
+    margin-bottom: 1em;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-container form input:focus,
+.form-container form textarea:focus {
+    border-color: #4CAF50; 
+    outline: none;
+}
+
+.form-container form button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.form-container form button:hover {
+    background-color: #45a049; 
+}
+
+/* confirmation.html */
+.confirmation-container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.confirmation-container h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+
+header nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1600px) {
+    .admin-container {
+        max-width: 1400px; 
+        margin: 0 auto; 
+    }
+}
+
+@media (min-width: 1920px) {
+    .admin-container {
+        max-width: 1600px; 
+        margin: 0 auto; 
+        padding: 0 40px; 
+    }
+}
+
+@media (max-width: 1200px) {
+    .admin-container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 0 15px;
+    }
+    
+    .search-and-results {
+        flex-direction: column; 
+    }
+    
+    .search-form,
+    .search-results {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 0 10px;
+    }
+    
+    .search-form {
+        padding: 10px;
+    }
+    
+    .search-form h2 {
+        font-size: 1.2em;
+    }
+    
+    .search-results table th,
+    .search-results table td {
+        font-size: 0.9em;
+    }
 }

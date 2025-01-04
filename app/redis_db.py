@@ -34,3 +34,6 @@ def get_reservation(reservation_id):
 def delete_reservation(reservation_id):
     redis_client.delete(f"reservation:{reservation_id}")
     redis_client.lrem("reservations", 0, reservation_id)
+
+def update_reservation(reservation_id, updated_data):
+    redis_client.hmset(f"reservation:{reservation_id}", updated_data)

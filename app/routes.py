@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash
 from app import app
-from app.redis_db import save_reservation, get_all_reservations, delete_reservation
+from app.redis_db import save_reservation, get_all_reservations, delete_reservation, get_reservation
+from app import redis_client
 
 # Main page
 @app.route("/", methods=["GET", "POST"])
@@ -58,3 +59,37 @@ def delete(reservation_id):
 @app.route("/confirmation")
 def confirmation():
     return render_template("confirmation.html")
+
+# Edit reservation
+@app.route("/edit/<reservation_id>", methods=["GET", "POST"])
+def edit(reservation_id):
+    reservation = get_reservation(reservation_id)
+    
+    if not reservation:
+        flash('Reservation not found!', 'error')
+        return redirect(url_for('admin'))
+    
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        date = request.form.get('date')
+        time = request.form.get('time')
+        guests = request.form.get('guests')
+        comments = request.form.get('comments')
+
+        updated_reservation = {
+            "id": reservation_id,
+            "timestamp": reservation.get("timestamp"),  
+            "name": name,
+            "email": email,
+            "date": date,
+            "time": time,
+            "guests": guests,
+            "comments": comments
+        }
+
+        redis_client.hset(f"reservation:{reservation_id}", mapping=updated_reservation)
+        flash('Reservation updated successfully!', 'success')
+        return redirect(url_for('admin'))
+    
+    return render_template('edit.html', reservation=reservation)

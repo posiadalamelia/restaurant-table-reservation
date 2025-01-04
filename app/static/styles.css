@@ -171,6 +171,15 @@ footer p {
     text-decoration: underline;
 }
 
+.btn-edit {
+    color: blue;
+    text-decoration: none;
+}
+
+.btn-edit:hover {
+    text-decoration: underline;
+}
+
 main {
     flex: 1;
     display: flex;

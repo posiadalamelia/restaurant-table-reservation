@@ -3,7 +3,7 @@ from redis import Redis
 import os
 
 app = Flask(__name__) # Flask appliaction's object
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your_secret_key_here')
+app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['REDIS_HOST'] = os.getenv('REDIS_HOST', 'redis')
 app.config['REDIS_PORT'] = os.getenv('REDIS_PORT', 6379)
 

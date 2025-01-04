@@ -7,7 +7,7 @@ Web application for managing restaurant table reservations. Customers can make r
 ### Containers 
 The project is divided into two main containers:
 1. Application Container (Backend + Frontend):
-    * Technologies: Python, HTML, CSS  
+    * Technologies: Python, HTML, CSS,Jinja2   
     * Framework: Flask
     * Port: 5000
 
@@ -16,8 +16,7 @@ The project is divided into two main containers:
     * Port: 6379
 
 ### Technologies Used:
-* Backend: Python 3.11
-* Backend Framework: Flask
+* Backend: Python 3.11, Flask, Jinja2
 * Frontend: HTML, CSS
 * Database: Redis
 * Containerization: Docker, Docker Compose

@@ -10,16 +10,10 @@ The project is divided into two main containers:
     * Technologies: Python, HTML, CSS  
     * Framework: Flask
     * Port: 5000
-    * Key Features:
-        * A home page with a reservation form.
-        * An admin panel for managing reservations.
 
 2. Database Container:
     * Technology: Redis
     * Port: 6379
-    * Functions:
-        * Key-value storage for reservation data.
-        * Fast data access and management.
 
 ### Technologies Used:
 * Backend: Python 3.11
@@ -32,7 +26,7 @@ The project is divided into two main containers:
 
 ## Core Features
 1. Main Page: Reservation form with redirect to confirmation page.
-2. Admin Panel (/admin): Viev, search, edit and delete reservations.
+2. Admin Panel (/admin): View, search, edit and delete reservations.
 3. Redis Database: Key-value storage for reservations. 
 4. Container communication: Via app-network in Docker Compose
 

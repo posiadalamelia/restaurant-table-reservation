@@ -5,14 +5,11 @@ Web application for managing restaurant table reservations. Customers can make r
 
 ## Project Structure
 ### Containers 
-The project is divided into two main containers:
+The project is divided into two containers:
 1. Application Container (Backend + Frontend):
-    * Technologies: Python, HTML, CSS,Jinja2   
-    * Framework: Flask
     * Port: 5000
 
 2. Database Container:
-    * Technology: Redis
     * Port: 6379
 
 ### Technologies Used:

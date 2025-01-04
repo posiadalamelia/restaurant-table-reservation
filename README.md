@@ -36,7 +36,7 @@ The project is divided into two main containers:
 3. Redis Database: Key-value storage for reservations. 
 4. Container communication: Via app-network in Docker Compose
 
-# Setup and Installation
+## Setup and Installation
 1. Clone Repository:
     ``` bash
     $ git clone https://github.com/posiadalamelia/restaurant-table-reservation.git

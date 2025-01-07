@@ -36,7 +36,7 @@ The project is divided into two containers:
     > You need to have [Docker](https://docs.docker.com/engine/install/) installed on your machine.
     ```bash
     # Run docker containers with compose
-    $ docker-compose up -d --build
+    $ docker compose up -d --build
     ```
 3. Access the application:
     * **Main Page** : http://localhost:5000

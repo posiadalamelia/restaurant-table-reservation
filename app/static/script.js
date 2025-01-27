@@ -7,8 +7,8 @@ function setTimeRange()
         {
             const timeInput = document.getElementById("time")
             const now = new Date();
-            const minTime="09:00";
-            const maxTime="18:00";
+            const minTime="10:00";
+            const maxTime="20:00";
             timeInput.min = minTime;
             timeInput.max = maxTime;
         }
